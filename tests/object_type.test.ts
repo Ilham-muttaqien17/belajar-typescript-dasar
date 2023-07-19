@@ -1,6 +1,6 @@
 describe('Object Type', () => { 
     it('should support in typescript', () => {
-        const person: { id: string, name: string } = {
+        const person: { id: string, name: string, hobbies?: [] } = {
             id: "1",
             name: "Test"
         };
