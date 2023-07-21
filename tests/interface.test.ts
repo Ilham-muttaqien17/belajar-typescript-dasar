@@ -104,4 +104,18 @@ describe('Interface', () => {
 
         console.log(domain)
     })
+
+    it('should support type assertions', () => {
+        const employee: any = {
+            id: "1",
+            name: "Tester",
+            age: 20
+        };
+
+        const employee2: Employee = employee as Employee;
+
+        employee2.division = "IT";
+
+        console.log(employee2);
+    })
 })
