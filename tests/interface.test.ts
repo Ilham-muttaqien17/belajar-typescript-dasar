@@ -69,4 +69,20 @@ describe('Interface', () => {
 
         console.log(manager);
     })
+
+    it('should support function in interface', () => {
+        interface Person {
+            name: string;
+            sayHello(name: string): string;
+        }
+
+        const person: Person = {
+            name: "Test",
+            sayHello: function (name: string): string {
+                return `Hello ${name}, i am ${this.name};`
+            }
+        }
+
+        console.log(person.sayHello('Test2'));
+    })
 })
