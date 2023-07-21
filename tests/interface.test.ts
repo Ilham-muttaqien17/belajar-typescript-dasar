@@ -85,4 +85,23 @@ describe('Interface', () => {
 
         console.log(person.sayHello('Test2'));
     })
+
+    it('should support intersection types', () => {
+        interface HasName {
+            name: string;
+        }
+
+        interface HasId {
+            id: String;
+        }
+
+        type Domain = HasId & HasName;
+
+        const domain: Domain = {
+            id: "1",
+            name: "Tester"
+        }
+
+        console.log(domain)
+    })
 })
