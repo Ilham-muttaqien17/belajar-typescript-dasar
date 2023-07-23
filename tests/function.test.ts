@@ -45,4 +45,17 @@ describe('Function Parameter', () => {
         expect(callMe(100)).toBe(200);
         expect(callMe("Test")).toBe("TEST");
     })
+
+    it('should support function as parameter', () => {
+        function sayHello(name: string, filter: (name: string) => string): string {
+            return `Hello ${filter(name)}`;
+        }
+
+        function toUpper(str: string): string {
+            return str.toUpperCase();
+        }
+
+        expect(sayHello('Test', toUpper)).toBe('Hello TEST');
+        expect(sayHello('Test', (name: string): string => name.toUpperCase())).toBe('Hello TEST');
+    })
 })
