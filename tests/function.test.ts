@@ -29,4 +29,20 @@ describe('Function Parameter', () => {
         expect(sayHello('Tester')).toBe('Hello Tester');
         expect(sayHello('Tester', 'asd')).toBe('Hello Tester asd');
     })
+
+    it('should support function overloading', () => {
+        function callMe(val: number): number;
+        function callMe(val: string): string;
+
+        function callMe(val: any) {
+            if(typeof val === "string") {
+                return val.toUpperCase();
+            } else if(typeof val === "number") {
+                return val * 2;
+            }
+        }
+
+        expect(callMe(100)).toBe(200);
+        expect(callMe("Test")).toBe("TEST");
+    })
 })
